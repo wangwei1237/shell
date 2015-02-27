@@ -1,8 +1,8 @@
 #!/bin/bash
 
-WORK="work";
-HOME="home";
-SCRIPT="alterDnsServices.sh";
+WORK="work"
+HOME="home"
+SCRIPT="alterDnsServices.sh"
 
 function usage() 
 {

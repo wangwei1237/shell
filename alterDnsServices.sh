@@ -6,7 +6,7 @@ SCRIPT="alterDnsServices.sh"
 
 function usage() 
 {
-    echo "Usage: $SCRIPT [work | home]";
+    echo "Usage: $SCRIPT [work | home]"
 }
 
 function getWiFiDnsServices()

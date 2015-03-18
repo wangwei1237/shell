@@ -2,6 +2,7 @@
 
 file=$1
 
+
 ##############################################################################
 # @breif  检查文件是否为BOM格式编码.
 # @param  file 待检查的文件.
@@ -22,9 +23,32 @@ function checkBOM()
     return 0
 }
 
+##############################################################################
+# @breif  检查文件是否以<?php开始.
+# @param  file 待检查的文件.
+# @return 0    以<?php开始，文件合法;
+#         1    不以<?php开始，文件非法;
+function checkPHPTag()
+{
+    local PHPTagValid=1
+    local result=$(head -n1 $1)
+    local tag=${result:0:5}
+
+    if [ "$tag" = '<?php' ]
+    then
+        PHPTagValid=0
+    fi
+
+    echo $PHPTagValid
+    return 0
+}
 
 if [ $(checkBOM $file) -eq 1 ] 
 then
-    echo "$file has BOM"
+    echo "[BOM chech] $file has BOM"
 fi 
 
+if [ $(checkPHPTag $file) -eq 1 ]
+then
+    echo "[php tag check] $file does not start with <?php"
+fi

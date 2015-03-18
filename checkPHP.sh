@@ -34,7 +34,8 @@ function checkPHPTag()
     local result=$(head -n1 $1)
     local tag=${result:0:5}
 
-    if [ "$tag" = '<?php' ]
+    #echo $tag
+    if [ "$tag" = '<?php' ] || [ "$tag" = '<?PHP' ]
     then
         PHPTagValid=0
     fi
@@ -47,6 +48,7 @@ if [ $(checkBOM $file) -eq 1 ]
 then
     echo "[BOM chech] $file has BOM"
 fi 
+
 
 if [ $(checkPHPTag $file) -eq 1 ]
 then

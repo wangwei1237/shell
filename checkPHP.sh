@@ -11,7 +11,7 @@ file=$1
 function checkBOM()
 {
     local isBOMFile=0
-    local result=$(od -A x -t c $1 | head -n 1 | tr -s ' ' | cut -d' ' -f2,3,4)
+    local result=$(head -n 1 $1 | od -A x -t c | tr -s ' ' | cut -d' ' -f2,3,4)
     result=($result)
     if [ ${#result} -eq 3 ] && [ ${result[0]} = "357" ] && \
        [ ${result[1]} = "273" ] && [ ${result[2]} = "277" ]

@@ -16,11 +16,7 @@ rm -rf $errorUrlWap;
 count=0;
 
 # 待测试的url的主机名.
-#hostname="http://tc-iknow-fmon23.tc.baidu.com:8080";
-#hostname="http://jx-iknow-tips00.jx.baidu.com:8080";
-#hostname="http://tc-iknow-fmon00.tc.baidu.com:8080";
-#hostname="http://cq01-testing-iknow15.vm.baidu.com:8080";
-hostname="http://tc-iknow-web00.tc.baidu.com:8081";
+hostname=""
 
 echo "Ready?";
 for ((i=5; i>0; --i))

@@ -4,21 +4,21 @@ export LC_COLLATE='C'
 export LC_CTYPE='C'
 export LC_CTYPE=en_US.UTF-8
 
-workSpace=/Users/wangwei/Documents/Project/iOS/mybaby_test
+workSpace=/Users/wangwei/Documents/Project/iOS/xiangmu_test
 buildNumber=1
-svnUrl="https://svn.baidu.com/app/search/iknow/trunk/native/mybaby"
+svnUrl="xxxx"
 buildType=
 buildEnv=
 appVersion=1
-appName=mybaby
+appName=xiangmu
 jobName=
 domain=
 
 xcodePath=/usr/bin
 sdkDevice="iphoneos8.4"
 sdkSiumlator="iphonesimulator8.4"
-projectName="mybaby"
-runTarget="mybaby"
+projectName="xiangmu"
+runTarget="xiangmu"
 configuration="Debug"
 desPath="iphone"
 
@@ -28,22 +28,20 @@ echo "appstore" > $workSpace/$desPath/Resource/Data/channel.txt
 #更改buildnumber
 echo "$buildNumber" > $workSpace/$desPath/Resource/Data/buildnumber.txt
 
-BUNDLE_IDENTIFIER="com.wangwei.mybaby"
-CODE_SIGN_IDENTITY='iPhone Developer: Wei Wang (8F92WE63QB)'
+BUNDLE_IDENTIFIER="com.wangwei.xiangmu"
+CODE_SIGN_IDENTITY='iPhone Developer: Wei Wang (XXXXXXX)'
 PROVISIONING_PROFILE="8a957752-6520-46ba-9493-fa39abbed75c" #DEBUG
-#CODE_SIGN_IDENTITY='iPhone Distribution: Beijing Baidu Netcom Science & Technology Co.,Ltd.'
-#PROVISIONING_PROFILE="83edfd4a-f986-47c3-a05e-91e8323a4446" #qiye
 
-sed -i '' "s/com\.baidu\.mybaby/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/mybaby/mybaby/mybaby-Info.plist
-sed -i '' "s/com\.wangwei\.mybaby/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/mybaby/mybaby/mybaby-Info.plist
-sed -i '' "s/com\.baidu\.KS\.mybaby/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/mybaby/mybaby/mybaby-Info.plist
-sed -i '' "s/com\.baidu\.ksnative/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/mybaby/mybaby/mybaby-Info.plist
+sed -i '' "s/com\.baidu\.xiangmu/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/xiangmu/xiangmu/xiangmu-Info.plist
+sed -i '' "s/com\.wangwei\.xiangmu/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/xiangmu/xiangmu/xiangmu-Info.plist
+sed -i '' "s/com\.baidu\.KS\.xiangmu/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/xiangmu/xiangmu/xiangmu-Info.plist
+sed -i '' "s/com\.baidu\.ksnative/${BUNDLE_IDENTIFIER}/g" $workSpace/$desPath/xiangmu/xiangmu/xiangmu-Info.plist
 
 echo "Build and Archive Run Target..."
 
 #clean
 echo "------The following is the clean command------"
-echo "${xcodePath}/xcodebuild" -project "$workSpace/$desPath/mybaby.xcodeproj" \
+echo "${xcodePath}/xcodebuild" -project "$workSpace/$desPath/xiangmu.xcodeproj" \
 -target "$runTarget" \
 -configuration "$configuration" \
 -sdk "$sdkDevice" \
@@ -52,7 +50,7 @@ clean \
 echo ""
 
 echo "------begin cleaning------"
-"${xcodePath}/xcodebuild" -project "$workSpace/$desPath/mybaby.xcodeproj" \
+"${xcodePath}/xcodebuild" -project "$workSpace/$desPath/xiangmu.xcodeproj" \
 -target "$runTarget" \
 -configuration "$configuration" \
 -sdk "$sdkDevice" \
@@ -62,8 +60,8 @@ echo ""
 
 #build
 echo "------The following is the build command------"
-echo "${xcodePath}/xcodebuild" -workspace "$workSpace/$desPath/mybaby.xcworkspace" \
--scheme mybaby \
+echo "${xcodePath}/xcodebuild" -workspace "$workSpace/$desPath/xiangmu.xcworkspace" \
+-scheme xiangmu \
 -configuration "$configuration" \
 -sdk "$sdkDevice" \
 ARCHS=\"armv7 arm64\" \
@@ -75,8 +73,8 @@ PROVISIONING_PROFILE="${PROVISIONING_PROFILE}"
 echo ""
 
 echo "------begin building------"
-"${xcodePath}/xcodebuild" -workspace "$workSpace/$desPath/mybaby.xcworkspace" \
--scheme mybaby \
+"${xcodePath}/xcodebuild" -workspace "$workSpace/$desPath/xiangmu.xcworkspace" \
+-scheme xiangmu \
 -configuration "$configuration" \
 -sdk "$sdkDevice" \
 ARCHS='armv7 arm64' \

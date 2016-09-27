@@ -4,6 +4,7 @@ export LC_COLLATE='C'
 export LC_CTYPE='C'
 export LC_CTYPE=en_US.UTF-8
 
+
 workSpace=/Users/wangwei/Documents/Project/iOS/xiangmu_test
 buildNumber=1
 svnUrl="xxxx"

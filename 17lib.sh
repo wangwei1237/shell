@@ -57,3 +57,27 @@ function get_content_from_string() {
     }
     '
 }
+
+# print top info, with limit top 10.
+#
+# @param none
+#
+# @return none
+function print_top_info() {
+
+    top_title=$(top -b n1|head -7|tail -1)
+    cpu_top10=$(top b -n1 | head -17 | tail -11)
+    mem_top10=$(top -b n1|head -17|tail -10|sort -k10 -r)
+
+cat <<EOF
+--------CPU top10--------:
+
+${top_title}
+${cpu_top10}
+
+--------Mem top10--------:
+
+${top_title}
+${mem_top10}
+EOF
+}

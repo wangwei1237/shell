@@ -1,8 +1,9 @@
 #################################################
 # 17lib.sh is a shell library script that contains 
-# some functions that can be used often. 
+# some functions which can be used. 
 #################################################
 DEBUG=1
+
 
 # debug info.
 # @param string info
@@ -13,6 +14,37 @@ function debug_info() {
         echo $info 
     fi
 }
+
+
+# post the local file with http protocol.
+#
+# @param string the local file full path, must with the pattern: key1=@/fullpath/file.
+#               if this request has other post parameters, then append the k-v parameter
+#               after ' '.
+#               etc. "file=@/Users/wangwei/test.mp4"
+#                    "file=@/Users/wangwei/test.mp4 key1=value1 key2=value2"
+# @param string the url that wangt to post.
+# 
+# @return the response content.
+function post_local_file() {
+    if [ $# -ne 2 ]
+    then
+        echo "post_local_file() parameters error, please check!"
+        exit 1
+    fi
+
+    local params=($1)
+    local url=$2 
+
+    local param_for_curl=""
+    for ((i=0; i<${#params[@]};i++)) {
+        param_for_curl="${param_for_curl} -F ${params[i]}"
+    }
+
+    local res=$(curl ${param_for_curl} "${url}")
+    echo $res
+}
+
 
 # get the setting content (according by regular expression) from string.
 #
